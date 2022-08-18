@@ -14,15 +14,15 @@
       <div class="cards">
         <% @list.bookmarks.each do |bookmark| %>
         <div class="card-movie">
-          <%= bookmark.movie.poster_url %>
+          <img src=<%= bookmark.movie.poster_url %> >
           <div class="card-movies-infos">
             <div>
-              <%= bookmark.movie.title %>
-              <%= bookmark.movie.rating %>
-              <%= bookmark.movie.overview %>
-              <%= bookmark.comment %>
+              <h2><%= bookmark.movie.title %></h2>
+              <p><%= bookmark.movie.rating %><i class="fa-solid fa-star"></i></p>
+              <p><%= bookmark.movie.overview %></p>
+              <p><%= bookmark.comment %></p>
             </div>
-            <%= link_to "delete", list_path(@list), class:'effacer', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <h2><%= link_to "delete", list_path(@list), class:'effacer text-right flex-shrink-0', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h2>
           </div>
         </div>
         <% end %>
