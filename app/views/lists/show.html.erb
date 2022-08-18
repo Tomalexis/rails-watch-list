@@ -1,0 +1,32 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url('clap.png') %>);">
+  <div class="container">
+    <h1><strong><%= @list.name %></strong></h1>
+    <%= link_to "#{@list.movies.count} movies", "#", class: "btn btn-flat", id:'count' %>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 adder">
+      <%= link_to "Add a movie", "#", class: "btn btn-ghost" %>
+    </div>
+    <div class="col-12">
+      <div class="cards">
+        <% @list.bookmarks.each do |bookmark| %>
+        <div class="card-movie">
+          <%= bookmark.movie.poster_url %>
+          <div class="card-movies-infos">
+            <div>
+              <%= bookmark.movie.title %>
+              <%= bookmark.movie.rating %>
+              <%= bookmark.movie.overview %>
+              <%= bookmark.comment %>
+            </div>
+            <%= link_to "delete", list_path(@list), class:'effacer', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

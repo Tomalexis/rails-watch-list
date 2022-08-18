@@ -1,0 +1,25 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url('banner.png') %>);">
+  <div class="container">
+    <h1><strong>Save any kind of movies</strong></h1>
+    <p>Classic</p>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 header">
+      <h1>My Lists</h1>
+      <%= link_to 'Create a movie list', new_list_path, class: "btn btn-flat btn-lg" %>
+    </div>
+    <div class="col-12">
+      <div class="cards">
+        <% @lists.each do |list| %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_url('clap.png') %>)">
+            <%= link_to list.name, list_path(list), class:'list-link' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
