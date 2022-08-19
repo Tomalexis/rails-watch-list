@@ -20,7 +20,7 @@
               <h2><%= bookmark.movie.title %></h2>
               <p><%= bookmark.movie.rating %><i class="fa-solid fa-star"></i></p>
               <p><%= bookmark.movie.overview %></p>
-              <p><%= bookmark.comment %></p>
+              <p><i class="fa-solid fa-quote-left"></i><%= bookmark.comment %></p>
             </div>
             <h2><%= link_to "delete", list_path(@list), class:'effacer text-right flex-shrink-0', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h2>
           </div>
