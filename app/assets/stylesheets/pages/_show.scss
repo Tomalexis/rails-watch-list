@@ -69,6 +69,11 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+
+  #bottom-infos {
+    position: fixed;
+    bottom: 0;
+  }
 }
 
 .effacer {
@@ -140,4 +145,16 @@
 
 .fa-star {
   color: rgba(255, 255, 0, 0.637);
+}
+
+.btn-cancel {
+  color: white;
+  background-color: #1c02ad;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  margin-left: 10px;
 }

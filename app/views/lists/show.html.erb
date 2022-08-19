@@ -8,7 +8,8 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-12 adder">
-      <%= link_to "Add a movie", "#", class: "btn btn-ghost" %>
+      <button type="button" data-bs-toggle="modal" data-bs-target="#new_movie_modal", class="btn btn-ghost">Add a movie</button>
+      <%= link_to "Delete this list", list_path(@list), class:'btn btn-cancel', data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
     </div>
     <div class="col-12">
       <div class="cards">
@@ -16,17 +17,21 @@
         <div class="card-movie">
           <img src=<%= bookmark.movie.poster_url %> >
           <div class="card-movies-infos">
-            <div>
               <h2><%= bookmark.movie.title %></h2>
               <p><%= bookmark.movie.rating %><i class="fa-solid fa-star"></i></p>
-              <p><%= bookmark.movie.overview %></p>
-              <p><i class="fa-solid fa-quote-left"></i><%= bookmark.comment %></p>
-            </div>
-            <h2><%= link_to "delete", list_path(@list), class:'effacer text-right flex-shrink-0', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h2>
           </div>
+          <div class="card-movies-infos">
+              <p><%= bookmark.movie.overview %></p>
+          </div>
+            <div class="card-movies-infos" id="bottom-infos">
+              <p><i class="fa-solid fa-quote-left"></i><strong><%= bookmark.comment %></strong></p>
+              <h2><%= link_to "delete", bookmark_path(bookmark), class:'effacer text-right flex-shrink-0', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h2>
+            </div>
         </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<%= render "bookmarks/modal", list: @list, bookmark: @bookmark %>
