@@ -144,7 +144,7 @@
 }
 
 .fa-star {
-  color: rgba(255, 255, 0, 0.637);
+  color: #FECC00;
 }
 
 .btn-cancel {
@@ -157,4 +157,9 @@
   opacity: 0.6;
   transition: opacity 0.3s ease;
   margin-left: 10px;
+}
+
+#review-box {
+  margin-left: 0%;
+  margin-right: 0%;
 }

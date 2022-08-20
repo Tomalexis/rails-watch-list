@@ -24,7 +24,7 @@
               <p><%= bookmark.movie.overview %></p>
           </div>
             <div class="card-movies-infos" id="bottom-infos">
-              <p><i class="fa-solid fa-quote-left"></i><strong><%= bookmark.comment %></strong></p>
+              <p><i class="fa-solid fa-quote-left"></i> <strong><%= bookmark.comment %></strong></p>
               <h2><%= link_to "delete", bookmark_path(bookmark), class:'effacer text-right flex-shrink-0', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h2>
             </div>
         </div>
@@ -35,7 +35,7 @@
 </div>
 
 <hr class="my-5">
-  <div class="row">
+  <div class="row" id="review-box">
     <div class="col-12 col-sm-6">
       <h3>Reviews</h3>
       <% if @list.reviews.empty? %>
